@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/css/q8r.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <h1>Авторизация</h1>
+      <p>Введите учётные данные для входа</p>
+      <div class="login-error" id="loginError"></div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Логин</label>
+          <input type="text" id="loginUsername" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" id="loginPassword" autocomplete="off" required>
+        </div>
+        <button type="submit" class="btn-login">Войти</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard" id="dashboard">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>DP System</h2>
+        <small id="currentUser"></small>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="active" data-tab="templates">Шаблоны</button>
+        <button data-tab="categories">Категории</button>
+        <button data-tab="faq">FAQ</button>
+        <button data-tab="users">Пользователи</button>
+        <button data-tab="settings">Настройки</button>
+      </nav>
+      <div class="sidebar-logout">
+        <button id="logoutBtn">Выйти</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <!-- TEMPLATES TAB -->
+      <div class="tab-panel active" id="tab-templates">
+        <h1>Управление шаблонами</h1>
+        <button class="btn-add" id="addTemplateBtn">+ Добавить шаблон</button>
+        <table class="data-table">
+          <thead><tr><th>Название</th><th>Категория</th><th>Вариации</th><th>Обновлено</th><th>Действия</th></tr></thead>
+          <tbody id="templatesTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- CATEGORIES TAB -->
+      <div class="tab-panel" id="tab-categories">
+        <h1>Управление категориями</h1>
+        <button class="btn-add" id="addCategoryBtn">+ Добавить категорию</button>
+        <table class="data-table">
+          <thead><tr><th>Название</th><th>Slug</th><th>Описание</th><th>Порядок</th><th>Действия</th></tr></thead>
+          <tbody id="categoriesTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- FAQ TAB -->
+      <div class="tab-panel" id="tab-faq">
+        <h1>Управление FAQ</h1>
+        <button class="btn-add" id="addFaqBtn">+ Добавить вопрос</button>
+        <table class="data-table">
+          <thead><tr><th>Вопрос</th><th>Категория</th><th>Порядок</th><th>Действия</th></tr></thead>
+          <tbody id="faqTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- USERS TAB -->
+      <div class="tab-panel" id="tab-users">
+        <h1>Управление пользователями</h1>
+        <button class="btn-add" id="addUserBtn">+ Добавить пользователя</button>
+        <table class="data-table">
+          <thead><tr><th>Логин</th><th>Роль</th><th>Создан</th><th>Действия</th></tr></thead>
+          <tbody id="usersTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- SETTINGS TAB -->
+      <div class="tab-panel" id="tab-settings">
+        <h1>Настройки</h1>
+        <div class="settings-card">
+          <form id="settingsForm">
+            <div class="form-group">
+              <label>WhatsApp номер</label>
+              <input type="text" id="settWhatsapp" placeholder="77475932055">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="settEmail" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label>Название компании</label>
+              <input type="text" id="settCompany" placeholder="DOGOVOR-PRO">
+            </div>
+            <button type="submit" class="btn-save">Сохранить</button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalContent"></div>
+  </div>
+
+  <!-- NOTIFICATION -->
+  <div class="notification" id="notification"></div>
+
+  <script src="/js/q8r.js"></script>
+</body>
+</html>

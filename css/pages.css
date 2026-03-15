@@ -1,0 +1,503 @@
+/* ================================================================
+   DOGOVOR-PRO — Pages (внутренние страницы)
+   ================================================================ */
+
+/* ── Page Hero (меньший hero для внутренних страниц) ── */
+.page-hero {
+  padding: 140px 0 60px;
+  background: linear-gradient(135deg, var(--c-gray-100) 0%, var(--c-orange-bg) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(232,96,10,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.page-hero h1 { margin-bottom: 16px; }
+.page-hero p {
+  color: var(--c-gray-700);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+.breadcrumbs a { color: var(--c-orange); }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs span { color: var(--c-gray-500); }
+
+/* ── Info Block (для страниц документы, суды, бизнес) ── */
+.info-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.info-block.reverse { direction: rtl; }
+.info-block.reverse > * { direction: ltr; }
+.info-block-content h2 { margin-bottom: 16px; }
+.info-block-content p { color: var(--c-gray-700); line-height: 1.8; }
+.info-block-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  background: var(--c-orange-bg);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-block-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Checkmark List ───────────────────────────── */
+.check-list { margin: 20px 0; }
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: var(--c-anthracite);
+}
+.check-list li::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: var(--c-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ── Benefits Block (Что вы получаете) ────────── */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.benefit-card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--c-gray-200);
+}
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--c-orange-bg);
+}
+.benefit-card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--c-orange-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.benefit-card-icon svg { width: 28px; height: 28px; color: var(--c-orange); }
+.benefit-card h4 { margin-bottom: 10px; }
+.benefit-card p { color: var(--c-gray-700); font-size: 0.9rem; margin: 0; }
+
+/* ── Practice Areas (Для страницы судов) ──────── */
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.practice-card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 36px 30px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  border-left: 4px solid var(--c-orange);
+}
+.practice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.practice-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.practice-card h3 .num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--c-orange);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.practice-card p { color: var(--c-gray-700); font-size: 0.95rem; margin: 0; }
+
+/* ── Templates Catalog (Категории) ────────────── */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.category-card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid transparent;
+  text-decoration: none;
+  display: block;
+}
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--c-orange);
+}
+.category-card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: var(--radius-md);
+  background: var(--c-orange-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.category-card-icon img { width: 28px; height: 28px; }
+.category-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.category-card p { color: var(--c-gray-500); font-size: 0.85rem; margin: 0; }
+
+/* ── Template Cards (Шаблоны по категории) ────── */
+.templates-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  min-height: 200px;
+}
+.template-card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid var(--c-gray-200);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--c-orange);
+}
+.template-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.template-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--c-gray-500);
+  margin-bottom: 12px;
+}
+.template-card p {
+  color: var(--c-gray-700);
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+.template-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-gray-200);
+}
+.template-card-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--c-orange);
+}
+.template-card-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--c-orange);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Pagination ───────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+.pagination-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--c-white);
+  border: 1px solid var(--c-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--c-anthracite);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.pagination-btn:hover { border-color: var(--c-orange); color: var(--c-orange); }
+.pagination-btn.active {
+  background: var(--c-orange);
+  color: var(--c-white);
+  border-color: var(--c-orange);
+}
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── FAQ Accordion ────────────────────────────── */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--c-gray-200);
+}
+.faq-item.active { border-color: var(--c-orange); }
+.faq-question {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  gap: 16px;
+  background: none;
+  width: 100%;
+  text-align: left;
+  color: var(--c-black);
+}
+.faq-question:hover { color: var(--c-orange); }
+.faq-question .chevron {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.faq-item.active .faq-question .chevron { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+.faq-answer-inner {
+  padding: 0 24px 20px;
+  color: var(--c-gray-700);
+  line-height: 1.7;
+}
+
+/* ── Template Detail (Детали шаблона) ─────────── */
+.template-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.template-demo {
+  background: var(--c-gray-100);
+  border: 1px solid var(--c-gray-200);
+  border-radius: var(--radius-md);
+  padding: 40px 32px;
+  font-size: 0.85rem;
+  color: var(--c-gray-700);
+  line-height: 1.8;
+  max-height: 480px;
+  overflow-y: auto;
+  font-family: 'Times New Roman', serif;
+}
+.template-demo h4 { text-align: center; font-size: 1rem; margin-bottom: 16px; }
+.template-demo p { text-indent: 2em; margin-bottom: 8px; }
+.template-info h1 { margin-bottom: 12px; font-size: 1.6rem; }
+.template-info .category-badge {
+  display: inline-block;
+  background: var(--c-orange-bg);
+  color: var(--c-orange);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.template-info .description {
+  color: var(--c-gray-700);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Variations list */
+.variations-list { display: flex; flex-direction: column; gap: 16px; }
+.variation-card {
+  background: var(--c-white);
+  border: 2px solid var(--c-gray-200);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  transition: var(--transition);
+}
+.variation-card:hover { border-color: var(--c-orange); }
+.variation-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.variation-card h3 { font-size: 1.05rem; }
+.variation-card .price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--c-orange);
+}
+.variation-card p { color: var(--c-gray-700); font-size: 0.9rem; margin-bottom: 16px; }
+.variation-card .btn { width: 100%; justify-content: center; }
+
+/* ── Checkout Page ────────────────────────────── */
+.checkout-box {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 48px;
+}
+.checkout-box h2 { text-align: center; margin-bottom: 8px; }
+.checkout-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--c-gray-100);
+  border-radius: var(--radius-md);
+  margin-bottom: 32px;
+}
+.checkout-product-name { font-weight: 700; }
+.checkout-product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--c-orange);
+}
+.checkout-form { display: flex; flex-direction: column; gap: 16px; }
+.checkout-form .form-group label { color: var(--c-anthracite); font-weight: 700; font-size: 0.9rem;}
+.checkout-form .form-group input {
+  padding: 14px 18px;
+  border: 2px solid var(--c-gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+  color: var(--c-black);
+  background: var(--c-white);
+}
+.checkout-form .form-group input:focus { border-color: var(--c-orange); }
+.checkout-form .form-group .required { color: var(--c-orange); }
+.checkout-success {
+  text-align: center;
+  padding: 40px 20px;
+  display: none;
+}
+.checkout-success.show { display: block; }
+.checkout-success h2 { color: var(--c-orange); margin-bottom: 12px; }
+.checkout-success p { color: var(--c-gray-700); }
+
+/* ── Loading State ────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--c-gray-500);
+  font-size: 1rem;
+  gap: 12px;
+}
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--c-gray-200);
+  border-top-color: var(--c-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Empty State ──────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--c-gray-500);
+}
+.empty-state svg { width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.3; }
+.empty-state h3 { margin-bottom: 8px; color: var(--c-gray-700); }
+.empty-state p { font-size: 0.95rem; }
+
+/* ── Responsive for pages ─────────────────────── */
+@media (max-width: 1024px) {
+  .info-block { grid-template-columns: 1fr; gap: 30px; }
+  .info-block.reverse { direction: ltr; }
+  .template-detail-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .page-hero { padding: 120px 0 40px; }
+  .categories-grid { grid-template-columns: 1fr 1fr; }
+  .templates-list { grid-template-columns: 1fr; }
+  .checkout-box { padding: 28px 20px; }
+  .practice-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .categories-grid { grid-template-columns: 1fr; }
+}
